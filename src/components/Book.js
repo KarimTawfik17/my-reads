@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import BookShelfChanger from "./BookShelfChanger";
 class Book extends Component {
   render() {
     return (
@@ -12,18 +13,9 @@ class Book extends Component {
               backgroundImage: `url(${this.props.bookImage})`,
             }}
           />
-          <div className="book-shelf-changer">
-            <select>
-              <option value="move" disabled>
-                Move to...
-              </option>
-              <option value="currentlyReading">Currently Reading</option>
-              <option value="wantToRead">Want to Read</option>
-              <option value="read">Read</option>
-              <option value="none">None</option>
-            </select>
-          </div>
+          <BookShelfChanger />
         </div>
+
         <div className="book-title">{this.props.bookTitle}</div>
         <div className="book-authors">{this.props.bookAuthor}</div>
       </div>
