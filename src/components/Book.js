@@ -10,14 +10,17 @@ class Book extends Component {
             style={{
               width: 128,
               height: 193,
-              backgroundImage: `url(${this.props.bookImage})`,
+              backgroundImage: `url(${this.props.book.imageLinks.thumbnail})`,
             }}
           />
-          <BookShelfChanger />
+          <BookShelfChanger
+            currentBook={this.props.book}
+            onUpdateBook={this.props.onUpdateBook}
+          />
         </div>
 
-        <div className="book-title">{this.props.bookTitle}</div>
-        <div className="book-authors">{this.props.bookAuthor}</div>
+        <div className="book-title">{this.props.book.title}</div>
+        <div className="book-authors">{this.props.book.authors.join(", ")}</div>
       </div>
     );
   }

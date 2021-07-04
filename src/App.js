@@ -3,10 +3,14 @@ import * as BooksAPI from "./BooksAPI";
 import "./App.css";
 import BookShelfList from "./components/BookShelfList";
 class BooksApp extends React.Component {
-  componentDidMount() {
+  getAllBooks() {
     BooksAPI.getAll().then((books) => {
       this.setState({ books });
     });
+  }
+
+  componentDidMount() {
+    this.getAllBooks();
   }
 
   state = {
@@ -14,7 +18,18 @@ class BooksApp extends React.Component {
     showSearchPage: false,
   };
 
+  updateBook = (book, shelf) => {
+    BooksAPI.update(book, shelf).then(() => {
+      this.getAllBooks();
+    });
+  };
+
   render() {
+    // if (this.state.books.length > 0) {
+    //   // console.log("before", this.state.books[0], this.state.books[0].shelf);
+    //   // this.updateBook(this.state.books[0], "currentlyReading");
+    //   this.state.books[0].title = this.state.books[0].title + "kkkwqdkwjk";
+    // }
     return (
       <div className="app">
         {this.state.showSearchPage ? (
@@ -47,7 +62,10 @@ class BooksApp extends React.Component {
             <div className="list-books-title">
               <h1>MyReads</h1>
             </div>
-            <BookShelfList books={this.state.books} />
+            <BookShelfList
+              books={this.state.books}
+              onUpdateBook={this.updateBook}
+            />
             <div className="open-search">
               <button onClick={() => this.setState({ showSearchPage: true })}>
                 Add a book

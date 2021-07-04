@@ -8,14 +8,17 @@ class BookShelfList extends Component {
       <div className="list-books-content">
         <div>
           <Shelf
+            onUpdateBook={this.props.onUpdateBook}
             shelfTitle="Currently Reading"
             books={books.filter((book) => book.shelf === "currentlyReading")}
           />
           <Shelf
+            onUpdateBook={this.props.onUpdateBook}
             shelfTitle="Want to Read"
             books={books.filter((book) => book.shelf === "wantToRead")}
           />
           <Shelf
+            onUpdateBook={this.props.onUpdateBook}
             shelfTitle="Already Read"
             books={books.filter((book) => book.shelf === "read")}
           />

@@ -11,11 +11,7 @@ class Shelf extends Component {
           <ol className="books-grid">
             {this.props.books.map((book) => (
               <li key={book.id}>
-                <Book
-                  bookTitle={book.title}
-                  bookAuthor={book.authors.join(", ")}
-                  bookImage={book.imageLinks.thumbnail}
-                />
+                <Book onUpdateBook={this.props.onUpdateBook} book={book} />
               </li>
             ))}
           </ol>
