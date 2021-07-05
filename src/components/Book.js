@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import BookShelfChanger from "./BookShelfChanger";
 class Book extends Component {
   render() {
+    // //
+
     return (
       <div className="book">
         <div className="book-top">
