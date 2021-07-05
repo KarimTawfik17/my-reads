@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Shelf from "./Shelf";
+import { Link } from "react-router-dom";
 
 class BookShelfList extends Component {
   render() {
@@ -25,6 +26,9 @@ class BookShelfList extends Component {
             shelfTitle="Already Read"
             books={this.props.books.filter((book) => book.shelf === "read")}
           />
+        </div>
+        <div className="open-search">
+          <Link to="/search">Add a book</Link>
         </div>
       </div>
     );
